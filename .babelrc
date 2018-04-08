@@ -1,0 +1,11 @@
+{
+  "presets": [
+    "env",
+    "react"
+  ],
+  "plugins": [
+    ["react-hot-loader/babel"],
+    ["syntax-dynamic-import"],
+    ["transform-async-generator-functions"]
+  ]
+}
