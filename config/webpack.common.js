@@ -1,5 +1,7 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+
 
 module.exports = {
   entry: {
@@ -13,20 +15,33 @@ module.exports = {
         use: {
           loader: 'babel-loader'
         }
+      },
+      {
+        test: /\.css$/,
+        use: [
+          MiniCssExtractPlugin.loader,
+          "css-loader"
+        ]
       }
     ]
   },
   plugins: [
     new HtmlWebpackPlugin({
       hash: true,
+      cache: true,
       title: 'React Boilerplate',
       themeColor: '#353535',
-      template: 'src/index.html'
+      template: 'src/index.html',
+    }),
+    new MiniCssExtractPlugin({
+      filename: "assets/style.[name].css",
+      chunkFilename: "assets/style.[id].css"
     })
   ],
   output: {
-    filename: '[name].bundle.js',
-    path: path.resolve(__dirname, '../', 'dist')
+    filename: 'assets/[name].bundle.js',
+    path: path.resolve(__dirname, '../', 'dist'),
+    publicPath: '/'
   },
   optimization: {
     splitChunks: {

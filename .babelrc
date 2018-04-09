@@ -6,6 +6,11 @@
   "plugins": [
     ["react-hot-loader/babel"],
     ["syntax-dynamic-import"],
-    ["transform-async-generator-functions"]
+    ["transform-async-generator-functions"],
+    ["import", {
+      "libraryName": "antd",
+      "libraryDirectory": "es",
+      "style": "css"
+    }]
   ]
 }
