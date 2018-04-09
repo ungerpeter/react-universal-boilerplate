@@ -1,6 +1,10 @@
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
+const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { GenerateSW } = require('workbox-webpack-plugin');
+
+const projectRootPath = path.join(__dirname, '..', '/');
 
 
 module.exports = {
@@ -11,7 +15,7 @@ module.exports = {
     rules: [
       {
         test: /\.js$/,
-        exclude: /(node_modules)/,
+        exclude: [/(node_modules)/, /(dist)/],
         use: {
           loader: 'babel-loader'
         }
@@ -26,20 +30,38 @@ module.exports = {
     ]
   },
   plugins: [
+    new CleanWebpackPlugin([
+      'dist/*.*'
+    ], {
+      root: projectRootPath,
+      exclude:  ['dist/manifest.json'],
+      verbose:  true,
+      dry:      false
+    }),
     new HtmlWebpackPlugin({
-      hash: true,
       cache: true,
       title: 'React Boilerplate',
       themeColor: '#353535',
       template: 'src/index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: "assets/style.[name].css",
-      chunkFilename: "assets/style.[id].css"
+      filename: "assets/[name].[hash:16].css",
+      chunkFilename: "assets/[name].[id].[chunkhash:16].css"
+    }),
+    new GenerateSW({
+      swDest: './service-worker.js',
+      cacheId: 'react-boilerplate-cache',
+      directoryIndex: 'index.html',
+      exclude: [/\.html$/],
+      runtimeCaching: [{
+        urlPattern: new RegExp('http://localhost:8080/'),
+        handler: 'networkFirst'
+      }]
     })
   ],
   output: {
-    filename: 'assets/[name].bundle.js',
+    filename: 'assets/[name].[hash:16].js',
+    chunkFilename: 'assets/[name].[id].[chunkhash:16].js',
     path: path.resolve(__dirname, '../', 'dist'),
     publicPath: '/'
   },

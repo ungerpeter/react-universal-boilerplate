@@ -7,21 +7,12 @@ import {
   Link
 } from 'react-router-dom';
 import routes from './routes';
+import Menu from './components/molecules/Menu';
 
 const App = () => (
   <Router>
     <Fragment>
-      <ul>
-        <li>
-          <Link to={'/'} >Home</Link>
-        </li>
-        <li>
-          <Link to={'/about'} >About</Link>
-        </li>
-        <li>
-          <Link to={'/foobar'} >Non existing page</Link>
-        </li>
-      </ul>
+      <Menu />
       <Switch>
         {routes.map((route, i) => (
           <Route key={i} {...route} />
