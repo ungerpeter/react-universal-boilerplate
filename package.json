@@ -7,6 +7,7 @@
     "start": "webpack-dev-server --hot --config config/webpack.dev.js",
     "build": "webpack --config config/webpack.prod.js",
     "serve": "node scripts/serve",
+    "serve:https": "node scripts/serve-https.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
