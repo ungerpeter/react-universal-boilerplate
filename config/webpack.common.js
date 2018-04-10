@@ -2,6 +2,7 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 const CleanWebpackPlugin = require('clean-webpack-plugin');
+const WebpackPwaManifest = require('webpack-pwa-manifest');
 const { GenerateSW } = require('workbox-webpack-plugin');
 
 const projectRootPath = path.join(__dirname, '..', '/');
@@ -47,6 +48,26 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: "assets/[name].[hash:16].css",
       chunkFilename: "assets/[name].[id].[chunkhash:16].css"
+    }),
+    new WebpackPwaManifest({
+      name: 'React Universal Boilerplate',
+      short_name: 'RUB',
+      description: 'foo bar foobar',
+      background_color: '#efefef',
+      display: "standalone",
+      theme_color: "#353535",
+      start_url: "/?utm_source=homescreen",
+      filename: "manifest.json",
+      icons: [
+        {
+          src: path.resolve(projectRootPath, 'src/static/logo.png'),
+          sizes: [96, 128, 192, 256, 384]
+        },
+        {
+          src: path.resolve(projectRootPath, 'src/static/logo.png'),
+          size: '1024x1024' // you can also use the specifications pattern
+        }
+      ]
     }),
     new GenerateSW({
       swDest: './service-worker.js',
