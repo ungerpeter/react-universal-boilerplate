@@ -4,7 +4,9 @@ dist/
 .sessions/
 .cache/
 __snapshots__/
+storybook-static/
 
 $RECYCLE.BIN
 *.DS_Store*
 *.manifest
+results.jest.json

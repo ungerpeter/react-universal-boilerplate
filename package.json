@@ -8,7 +8,9 @@
     "build": "webpack --config config/webpack.prod.js",
     "serve": "node scripts/serve",
     "serve:https": "node scripts/serve-https.js",
-    "test": "jest -u"
+    "test": "jest -u --json --outputFile=.storybook/results.jest.json --watch",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./scripts/test-setup.js"
@@ -24,6 +26,14 @@
   },
   "homepage": "https://github.com/ungerpeter/react-universal-boilerplate#readme",
   "devDependencies": {
+    "@storybook/addon-a11y": "^3.4.1",
+    "@storybook/addon-actions": "^3.4.1",
+    "@storybook/addon-info": "^3.4.1",
+    "@storybook/addon-jest": "^3.4.1",
+    "@storybook/addon-links": "^3.4.1",
+    "@storybook/addon-notes": "^3.4.1",
+    "@storybook/addons": "^3.4.1",
+    "@storybook/react": "^3.4.1",
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
     "babel-jest": "^22.4.3",
@@ -34,6 +44,7 @@
     "babel-plugin-transform-async-generator-functions": "^6.24.1",
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
+    "babel-runtime": "^6.26.0",
     "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
