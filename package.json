@@ -11,9 +11,17 @@
     "test": "jest -u --json --outputFile=.storybook/results.jest.json --watch",
     "storybook": "start-storybook -p 6006",
     "build-storybook": "build-storybook"
+    "build-storybook": "build-storybook",
+    "precommit": "lint-staged",
+    "postcommit": "git update-index --again",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix"
   },
   "jest": {
     "setupTestFrameworkScriptFile": "./scripts/test-setup.js"
+  },
+  "lint-staged": {
+    "*.js": ["eslint . --fix", "git add"]
   },
   "repository": {
     "type": "git",
@@ -48,9 +56,16 @@
     "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
+    "eslint": "^4.19.1",
+    "eslint-config-airbnb": "^16.1.0",
+    "eslint-loader": "^2.0.0",
+    "eslint-plugin-import": "^2.10.0",
+    "eslint-plugin-jsx-a11y": "^6.0.3",
+    "eslint-plugin-react": "^7.7.0",
     "html-webpack-plugin": "^3.2.0",
     "http-server": "^0.11.1",
     "jest": "^22.4.3",
+    "lint-staged": "^7.0.4",
     "mini-css-extract-plugin": "^0.4.0",
     "optimize-css-assets-webpack-plugin": "^4.0.0",
     "react": "^16.3.1",
@@ -70,6 +85,7 @@
   },
   "dependencies": {
     "antd": "^3.4.1",
+    "babel-eslint": "^8.2.2",
     "clean-webpack-plugin": "^0.1.19",
     "compression": "^1.7.2",
     "express": "^4.16.3",
