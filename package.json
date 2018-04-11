@@ -8,7 +8,10 @@
     "build": "webpack --config config/webpack.prod.js",
     "serve": "node scripts/serve",
     "serve:https": "node scripts/serve-https.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "jest -u"
+  },
+  "jest": {
+    "setupTestFrameworkScriptFile": "./scripts/test-setup.js"
   },
   "repository": {
     "type": "git",
@@ -23,6 +26,7 @@
   "devDependencies": {
     "babel-cli": "^6.26.0",
     "babel-core": "^6.26.0",
+    "babel-jest": "^22.4.3",
     "babel-loader": "^7.1.4",
     "babel-plugin-import": "^1.7.0",
     "babel-plugin-import-inspector": "^2.0.0",
@@ -31,13 +35,17 @@
     "babel-preset-env": "^1.6.1",
     "babel-preset-react": "^6.24.1",
     "css-loader": "^0.28.11",
+    "enzyme": "^3.3.0",
+    "enzyme-adapter-react-16": "^1.1.1",
     "html-webpack-plugin": "^3.2.0",
     "http-server": "^0.11.1",
+    "jest": "^22.4.3",
     "mini-css-extract-plugin": "^0.4.0",
     "optimize-css-assets-webpack-plugin": "^4.0.0",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
     "react-hot-loader": "^4.0.1",
+    "react-test-renderer": "^16.3.1",
     "resource-hints-webpack-plugin": "^0.0.2",
     "style-loader": "^0.20.3",
     "uglifyjs-webpack-plugin": "^1.2.4",

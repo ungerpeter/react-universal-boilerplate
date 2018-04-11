@@ -1,4 +1,10 @@
 .idea/
 node_modules/
-dist/assets/
-dist/index.html
+dist/
+.sessions/
+.cache/
+__snapshots__/
+
+$RECYCLE.BIN
+*.DS_Store*
+*.manifest
