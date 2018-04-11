@@ -9,7 +9,6 @@ app.listen(8080, (error) => {
   if (error) {
     console.error(error);
     return process.exit(1);
-  } else {
-    console.log('Listening on port: 8080');
   }
+  console.log('Listening on port: 8080');
 });

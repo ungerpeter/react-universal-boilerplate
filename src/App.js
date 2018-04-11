@@ -4,7 +4,6 @@ import {
   BrowserRouter as Router,
   Switch,
   Route,
-  Link
 } from 'react-router-dom';
 import routes from './routes';
 import Menu from './components/molecules/Menu';
@@ -15,7 +14,7 @@ const App = () => (
       <Menu />
       <Switch>
         {routes.map((route, i) => (
-          <Route key={i} {...route} />
+          <Route key={`route-${i}`} {...route} />
         ))}
       </Switch>
     </Fragment>

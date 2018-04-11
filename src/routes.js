@@ -3,17 +3,17 @@ import LoadingPage from './container/LoadingPage';
 
 const Home = Loadable({
   loader: () => import('./container/Home'),
-  loading: LoadingPage
+  loading: LoadingPage,
 });
 
 const About = Loadable({
   loader: () => import('./container/About'),
-  loading: LoadingPage
+  loading: LoadingPage,
 });
 
 const NotFound = Loadable({
   loader: () => import('./container/NotFound'),
-  loading: LoadingPage
+  loading: LoadingPage,
 });
 
 
@@ -21,16 +21,16 @@ const routes = [
   {
     path: '/',
     component: Home,
-    exact: true
+    exact: true,
   },
   {
     path: '/about',
     component: About,
-    exact: true
+    exact: true,
   },
   {
     component: NotFound,
-  }
+  },
 ];
 
 export default routes;

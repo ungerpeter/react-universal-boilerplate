@@ -4,7 +4,7 @@ import { withMarkdownNotes } from '@storybook/addon-notes';
 import { withInfo } from '@storybook/addon-info';
 import { withTests } from '@storybook/addon-jest';
 import { checkA11y } from '@storybook/addon-a11y';
-import results from '../../../.storybook/results.jest';
+import results from '../../../.storybook/results.jest.json';
 import HelloWorld from '../../components/atoms/HelloWorld';
 
 const info = {};
@@ -24,8 +24,7 @@ Usage:
 storiesOf('Atoms/HelloWorld', module)
   .addDecorator(checkA11y)
   .addDecorator(withTests({ results })('HelloWorld'))
-  .add('HelloWorld',
-    withInfo(info)(
-    withMarkdownNotes(notes)(
-      () => <HelloWorld />
-    )));
+  .add(
+    'HelloWorld',
+    withInfo(info)(withMarkdownNotes(notes)(() => <HelloWorld />)),
+  );

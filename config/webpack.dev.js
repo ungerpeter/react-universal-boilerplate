@@ -11,5 +11,5 @@ module.exports = merge(common, {
     open: true,
     compress: true,
     inline: true,
-  }
+  },
 });
