@@ -94,11 +94,14 @@ module.exports = {
     splitChunks: {
       cacheGroups: {
         commons: {
-          name: 'commons',
-          chunks: 'initial',
-          minChunks: 2,
+          name: 'vendor',
+          test: /[\\/]node_modules[\\/]/,
+          chunks: 'initial'
         },
       },
+    },
+    runtimeChunk: {
+      name: "manifest",
     },
   },
 };
