@@ -39,7 +39,6 @@ module.exports = {
       'dist/*.*',
     ], {
       root: projectRootPath,
-      exclude: ['dist/manifest.json'],
       verbose: true,
       dry: false,
     }),
@@ -50,8 +49,8 @@ module.exports = {
       template: 'src/index.html',
     }),
     new MiniCssExtractPlugin({
-      filename: 'assets/[name].[hash:16].css',
-      chunkFilename: 'assets/[name].[id].[chunkhash:16].css',
+      filename: 'assets/[name].[hash:10].css',
+      chunkFilename: 'assets/[name].[chunkhash:10].css',
     }),
     new WebpackPwaManifest({
       name: 'React Universal Boilerplate',
@@ -69,7 +68,7 @@ module.exports = {
         },
         {
           src: path.resolve(projectRootPath, 'src/static/logo.png'),
-          size: '1024x1024', // you can also use the specifications pattern
+          size: '1024x1024',
         },
       ],
     }),
@@ -85,8 +84,8 @@ module.exports = {
     }),
   ],
   output: {
-    filename: 'assets/[name].[hash:16].js',
-    chunkFilename: 'assets/[name].[id].[chunkhash:16].js',
+    filename: 'assets/[name].[hash:10].js',
+    chunkFilename: 'assets/[name].[chunkhash:10].js',
     path: path.resolve(__dirname, '../', 'dist'),
     publicPath: '/',
   },
