@@ -14,6 +14,10 @@
         <noscript>
             <p>Please enable JavaScript to interact with this page.</p>
         </noscript>
-        <div id="root" role="main"></div>
+        <%= htmlWebpackPlugin.options.testLiteral %>
+        <%= htmlWebpackPlugin.options.preloadedState %>
+        <div id="root" role="main">
+            <%= htmlWebpackPlugin.options.reactDom %>
+        </div>
     </body>
 </html>

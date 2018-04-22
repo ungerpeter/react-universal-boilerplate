@@ -3,6 +3,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
+const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
 const { GenerateSW } = require('workbox-webpack-plugin');
 
 const projectRootPath = path.join(__dirname, '..', '/');
@@ -10,7 +11,7 @@ const projectRootPath = path.join(__dirname, '..', '/');
 
 module.exports = {
   entry: {
-    app: './src/index.js',
+    app: './src/client.js',
   },
   module: {
     rules: [
@@ -35,9 +36,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new CleanWebpackPlugin([
-      'dist/*.*',
-    ], {
+    new CleanWebpackPlugin(['dist'], {
       root: projectRootPath,
       verbose: true,
       dry: false,
@@ -46,7 +45,11 @@ module.exports = {
       cache: true,
       title: 'React Boilerplate',
       themeColor: '#353535',
+      reactDom: '${reactDom}',
+      preloadedState: '${preloadedState}',
+      testLiteral: '${testLiteral}',
       template: 'src/index.html',
+      alwaysWriteToDisk: true
     }),
     new MiniCssExtractPlugin({
       filename: 'assets/[name].[hash:10].css',
@@ -82,11 +85,14 @@ module.exports = {
         handler: 'networkFirst',
       }],
     }),
+    new HtmlWebpackHarddiskPlugin({
+      outputPath: path.resolve(projectRootPath, 'dist/views'),
+    })
   ],
   output: {
     filename: 'assets/[name].[hash:10].js',
     chunkFilename: 'assets/[name].[chunkhash:10].js',
-    path: path.resolve(__dirname, '../', 'dist'),
+    path: path.resolve(__dirname, '../', 'dist', 'public'),
     publicPath: '/',
   },
   optimization: {
