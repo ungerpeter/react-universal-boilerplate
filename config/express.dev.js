@@ -8,7 +8,6 @@ const config = require('./webpack.dev');
 const compiler = webpack(config);
 
 app.use(webpackDevMiddleware(compiler, {
-  noInfo: true,
   serverSideRender: true,
 }));
 app.use(webpackHotMiddleware(compiler.compilers.find(compiler => compiler.name === 'client')));

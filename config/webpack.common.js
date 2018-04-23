@@ -4,6 +4,7 @@ const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const WebpackPwaManifest = require('webpack-pwa-manifest');
 const HtmlWebpackHarddiskPlugin = require('html-webpack-harddisk-plugin');
+const IgnoreEmitPlugin = require('ignore-emit-webpack-plugin');
 const { GenerateSW } = require('workbox-webpack-plugin');
 
 const projectRootPath = path.join(__dirname, '..', '/');
@@ -89,7 +90,8 @@ const clientConfig =  {
     }),
     new HtmlWebpackHarddiskPlugin({
       outputPath: path.resolve(projectRootPath, 'dist/views'),
-    })
+    }),
+    new IgnoreEmitPlugin(/\.html$/)
   ],
   output: {
     filename: 'assets/[name].[hash:10].js',
@@ -116,10 +118,7 @@ const clientConfig =  {
 const serverConfig =  {
   name: 'server',
   target: 'node',
-  entry: {
-    polyfills: './config/polyfills.js',
-    server: './src/server.js',
-  },
+  entry: './src/server.js',
   module: {
     rules: [
       {
@@ -130,14 +129,13 @@ const serverConfig =  {
       {
         test: /\.css$/,
         use: [
-          'style-loader',
           'css-loader',
         ],
       },
     ],
   },
   output: {
-    filename: '[name].js',
+    filename: 'server.js',
     path: path.resolve(__dirname, '../', 'dist', 'server'),
     libraryTarget: 'commonjs2'
   },

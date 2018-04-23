@@ -7,17 +7,14 @@ import {
 import routes from './routes';
 import Menu from './components/molecules/Menu';
 
-const App = () => {
-  console.log(process.env.RUNTIME_ENV);
-  return (<Fragment>
-    <Menu />
-    <Switch>
-      {routes.map((route, i) => (
-        <Route key={`route-${i}`} {...route} />
-        ))}
-    </Switch>
-  </Fragment>
-  );
-};
+const App = () => (<Fragment>
+  <Menu />
+  <Switch>
+    {routes.map((route, i) => (
+      <Route key={`route-${i}`} {...route} />
+      ))}
+  </Switch>
+</Fragment>
+);
 
 export default hot(module)(App);

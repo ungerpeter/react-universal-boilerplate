@@ -24,12 +24,11 @@ const sessionConfig = () => {
 
 const app = express();
 
-/*app.engine('html', es6Renderer);
+app.engine('html', es6Renderer);
 app.set('views', 'dist/views');
-app.set('view engine', 'html');*/
+app.set('view engine', 'html');
 app.use(compression());
 app.use(bodyParser.json());
-//app.use(express.static('dist/public', {index: false}));
 app.use(sessionConfig());
 
 module.exports = app;
