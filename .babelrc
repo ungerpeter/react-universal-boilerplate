@@ -1,16 +1,37 @@
 {
-  "presets": [
-    "env",
-    "react"
-  ],
-  "plugins": [
-    ["react-hot-loader/babel"],
-    ["syntax-dynamic-import"],
-    ["transform-async-generator-functions"],
-    ["import", {
-      "libraryName": "antd",
-      "libraryDirectory": "es",
-      "style": "css"
-    }]
-  ]
+  "env": {
+    "development": {
+      "presets": [
+        "env",
+        "react"
+      ],
+      "plugins": [
+        ["react-hot-loader/babel"],
+        ["syntax-dynamic-import"],
+        ["dynamic-import-node"],
+        ["transform-async-generator-functions"],
+        ["import", {
+          "libraryName": "antd",
+          "libraryDirectory": "es",
+          "style": "css"
+        }]
+      ]
+    },
+    "production": {
+      "presets": [
+        "env",
+        "react"
+      ],
+      "plugins": [
+        ["syntax-dynamic-import"],
+        ["dynamic-import-node"],
+        ["transform-async-generator-functions"],
+        ["import", {
+          "libraryName": "antd",
+          "libraryDirectory": "es",
+          "style": "css"
+        }]
+      ]
+    }
+  }
 }

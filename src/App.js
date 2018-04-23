@@ -1,24 +1,23 @@
 import React, { Fragment } from 'react';
 import { hot } from 'react-hot-loader';
 import {
-  BrowserRouter as Router,
   Switch,
   Route,
 } from 'react-router-dom';
 import routes from './routes';
 import Menu from './components/molecules/Menu';
 
-const App = () => (
-  <Router>
-    <Fragment>
-      <Menu />
-      <Switch>
-        {routes.map((route, i) => (
-          <Route key={`route-${i}`} {...route} />
+const App = () => {
+  console.log(process.env.RUNTIME_ENV);
+  return (<Fragment>
+    <Menu />
+    <Switch>
+      {routes.map((route, i) => (
+        <Route key={`route-${i}`} {...route} />
         ))}
-      </Switch>
-    </Fragment>
-  </Router>
-);
+    </Switch>
+  </Fragment>
+  );
+};
 
 export default hot(module)(App);

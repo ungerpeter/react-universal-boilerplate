@@ -9,7 +9,9 @@ const { GenerateSW } = require('workbox-webpack-plugin');
 const projectRootPath = path.join(__dirname, '..', '/');
 
 
-module.exports = {
+const clientConfig =  {
+  name: 'client',
+  target: 'web',
   entry: {
     app: './src/client.js',
   },
@@ -109,4 +111,39 @@ module.exports = {
       name: "manifest",
     },
   },
+};
+
+const serverConfig =  {
+  name: 'server',
+  target: 'node',
+  entry: {
+    polyfills: './config/polyfills.js',
+    server: './src/server.js',
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        exclude: [/(node_modules)/, /(dist)/],
+        use: ['babel-loader'],
+      },
+      {
+        test: /\.css$/,
+        use: [
+          'style-loader',
+          'css-loader',
+        ],
+      },
+    ],
+  },
+  output: {
+    filename: '[name].js',
+    path: path.resolve(__dirname, '../', 'dist', 'server'),
+    libraryTarget: 'commonjs2'
+  },
+};
+
+module.exports = {
+  client: clientConfig,
+  server: serverConfig
 };

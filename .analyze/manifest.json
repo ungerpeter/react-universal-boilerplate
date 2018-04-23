@@ -1,0 +1,42 @@
+{
+  "icons": [
+    {
+      "src": "/icon_1024x1024.20a8dde098b4863204605bf71fc817a4.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_384x384.11f8d917be65b8d0f162c87e61ea903f.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_256x256.1de7b1c6bc3b1417fc51193c17dfb769.png",
+      "sizes": "256x256",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_192x192.08888a1ddf9cdad52794a4ad46dd3cd0.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_128x128.1ccdbb300cb722c898f706854ed97de6.png",
+      "sizes": "128x128",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon_96x96.6c8adc494268e9c275b8264a7abd482c.png",
+      "sizes": "96x96",
+      "type": "image/png"
+    }
+  ],
+  "name": "React Universal Boilerplate",
+  "short_name": "RUB",
+  "orientation": "portrait",
+  "display": "standalone",
+  "start_url": "/?utm_source=homescreen",
+  "description": "foo bar foobar",
+  "background_color": "#efefef",
+  "theme_color": "#353535"
+}
