@@ -10,7 +10,7 @@ const compiler = webpack(config);
 app.use(webpackDevMiddleware(compiler, {
   serverSideRender: true,
 }));
-app.use(webpackHotMiddleware(compiler.compilers.find(compiler => compiler.name === 'client')));
+app.use(webpackHotMiddleware(compiler));
 app.use(webpackHotServerMiddleware(compiler));
 
 module.exports = app;

@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { hot } from 'react-hot-loader';
 import HelloWorld from '../components/atoms/HelloWorld';
 
 const About = () => (
@@ -9,4 +10,4 @@ const About = () => (
   </Fragment>
 );
 
-export default About;
+export default hot(module)(About);

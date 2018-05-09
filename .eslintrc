@@ -19,6 +19,7 @@
     "react/no-array-index-key": 0,
     "linebreak-style": 0,
     "react/jsx-closing-tag-location": 0,
+    "eol-last": 0
   },
   "extends": [
     "airbnb"
