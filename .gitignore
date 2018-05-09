@@ -5,6 +5,7 @@ dist/
 .cache/
 __snapshots__/
 storybook-static/
+.analyze/
 
 $RECYCLE.BIN
 *.DS_Store*
