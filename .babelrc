@@ -9,6 +9,7 @@
         ["react-hot-loader/babel"],
         ["syntax-dynamic-import"],
         ["dynamic-import-node"],
+        ["transform-class-properties"],
         ["transform-async-generator-functions"],
         ["import", {
           "libraryName": "antd",
@@ -25,6 +26,7 @@
       "plugins": [
         ["syntax-dynamic-import"],
         ["dynamic-import-node"],
+        ["transform-class-properties"],
         ["transform-async-generator-functions"],
         ["import", {
           "libraryName": "antd",
