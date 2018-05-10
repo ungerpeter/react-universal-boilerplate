@@ -9,6 +9,7 @@
         ["react-hot-loader/babel"],
         ["syntax-dynamic-import"],
         ["dynamic-import-node"],
+        ["transform-object-rest-spread"],
         ["transform-class-properties"],
         ["transform-async-generator-functions"],
         ["import", {
@@ -27,6 +28,7 @@
         ["react-hot-loader/babel"],
         ["syntax-dynamic-import"],
         ["dynamic-import-node"],
+        ["transform-object-rest-spread"],
         ["transform-class-properties"],
         ["transform-async-generator-functions"],
         ["import", {
@@ -44,6 +46,7 @@
       "plugins": [
         ["syntax-dynamic-import"],
         ["dynamic-import-node"],
+        ["transform-object-rest-spread"],
         ["transform-class-properties"],
         ["transform-async-generator-functions"],
         ["import", {
