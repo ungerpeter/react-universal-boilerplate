@@ -1,4 +1,4 @@
-import * as Loadable from 'react-loadable';
+const Loadable = require('react-loadable');
 const chalk = require('chalk').default;
 const app = require('../config/express.dev');
 
