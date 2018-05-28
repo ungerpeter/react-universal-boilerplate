@@ -5,7 +5,7 @@
   "main": "src/index.js",
   "scripts": {
     "start": "cross-env NODE_ENV=development env-cmd .env babel-node scripts/start",
-    "serve": "cross-env NODE_ENV=production env-cmd .env babel-node scripts/serve",
+    "serve": "cross-env NODE_ENV=production env-cmd .env node scripts/serve",
     "build": "webpack --config config/webpack.prod.js",
     "serve:https": "cross-env NODE_ENV=production env-cmd .env babel-node scripts/serve-https.js",
     "test": "jest -u --json --outputFile=.storybook/results.jest.json --watch",
