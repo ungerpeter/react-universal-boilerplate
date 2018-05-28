@@ -18,7 +18,15 @@
     "lint:fix": "eslint . --fix"
   },
   "jest": {
-    "setupTestFrameworkScriptFile": "./scripts/test-setup.js"
+    "setupTestFrameworkScriptFile": "./scripts/test-setup.js",
+    "collectCoverageFrom": [
+      "<rootDir>/src/**/*.{js,jsx,mjs}"
+    ],
+    "collectCoverage": true,
+    "coverageReporters": [
+      "json",
+      "html"
+    ]
   },
   "lint-staged": {
     "*.js": [

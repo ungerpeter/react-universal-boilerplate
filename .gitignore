@@ -4,6 +4,7 @@ dist/
 .sessions/
 .cache/
 __snapshots__/
+coverage/
 storybook-static/
 .analyze/
 
